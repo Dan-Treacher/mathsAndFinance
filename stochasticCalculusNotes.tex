@@ -99,7 +99,7 @@ We substitute equation \ref{GBM} into that of the expansion in equation \ref{Tay
 	df=\dpart{f}{S}\,S\left(\mu dt+\sigma dB_t\right)+\dpart{f}{t}\,dt+\frac{1}{2}\frac{\partial^2 f}{\partial S^2}\,S^2\left(\mu dt+\sigma dB_t\right)^2.
 \end{equation}
 If we expand the squared bracket we'll get three terms, one with $dt^2$, one with $dt\,dB_t$ and one with $dB_t^2$. Of those three, the one with the slowest temporal variation (most important) is $dB_t^2(=dt)$ so we disregard the other two. Rearranging the above then gives:
-\begin{equation}
+\begin{equation}\label{ItoAppliedToGBM}
 	df=\left(\dpart{f}{S}\,S\mu+\dpart{f}{t}+\frac{S^2\sigma^2}{2}\frac{\partial^2 f}{\partial S^2}\right)\,dt + \dpart{f}{S}\,S\sigma\,dB_t
 \end{equation}
 which is Ito's lemma as applied to GBM.\\
@@ -146,19 +146,44 @@ Now denoting an option as $V$, consider a portfolio consisting of going short on
 \begin{equation}
 	\Pi=-V+\dpart{S}{V}S
 \end{equation}
-which has an infinitesimal value change over time $\Delta\,t$ of
-\begin{equation}
-	d\Pi=-dV+\dpart{S}{V}\,dS
+which has an incremental value change over time $\Delta t$ of
+\begin{equation}\label{DeltaHedgePortfolio}
+	\Delta\Pi=-\Delta V+\dpart{S}{V}\,\Delta S
 \end{equation}
 
+\subsection{Ito's lemma application}
 
-
-
-
-
-
-
-
+Applying equation \ref{ItoAppliedToGBM} to this situation involves substituting $V$, the option price, for the generic function handle $f$. Taking this over the increment of time $\Delta t$, we have
+\begin{equation}
+	\Delta V=\left(\dpart{V}{S}\,S\mu+\dpart{V}{t}+\frac{S^2\sigma^2}{2}\frac{\partial^2 V}{\partial S^2}\right)\,\Delta t + \dpart{V}{S}\,S\sigma\,\Delta B_t
+\end{equation}
+which describes the incremental value change in the option $V$ in response to a change in the underlying $S$. Substituting this into the delta hedging portfolio (equation \ref{DeltaHedgePortfolio}), we get after cancelling some terms
+\begin{equation}\label{DeltaHedgeIto}
+	\Delta\Pi = -\left(\dpart{V}{t}+\frac{S^2\sigma^2}{2}\frac{\partial^2 V}{\partial S^2}\right)\Delta t.
+\end{equation}
+Of note here is that we've managed to eliminate the $dB_t$ term which represented the random stochastic part of the situation. The portfolio is now riskless, with rate of return $r$.\\
+\\
+The delta hedging portfolio will grow at rate $r$ over time $\Delta t$ according to
+\begin{equation}
+	r\,\Pi\,\Delta t = \Delta \Pi
+\end{equation}
+which when equated to equation \ref{DeltaHedgeIto} reveals
+\begin{equation}
+	r\left(\dpart{V}{S}S-V\right)=-\dpart{V}{t}-\frac{S^2\sigma^2}{2}\frac{\partial^2 V}{\partial S^2}
+\end{equation}
+which rearranges to
+\begin{equation}
+	\dpart{V}{t}+\frac{S^2\sigma^2}{2}\frac{\partial^2 V}{\partial S^2}+rS\dpart{V}{S}-rV=0
+\end{equation}
+which is the Black Scholes PDE.
+\subsubsection{Key takeaways}
+\begin{enumerate}
+	\item Consider the delta hedging portfolio.
+	\item Substitute in Ito's lemma applied to GBM as the option price. Cancel terms.
+	\item Equate to the delta hedging portfolio's incremental value change.
+	\item Rearrange to get the PDE.
+	\item Black Scholes formula is an expression of the replicating portfolio.
+\end{enumerate}
 
 
 

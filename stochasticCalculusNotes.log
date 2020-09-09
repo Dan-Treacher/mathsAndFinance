@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.7) (preloaded format=pdflatex 2020.9.7)  9 SEP 2020 19:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.7) (preloaded format=pdflatex 2020.9.7)  9 SEP 2020 19:28
 entering extended mode
 **./stochasticCalculusNotes.tex
 (stochasticCalculusNotes.tex
@@ -150,12 +150,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 135--139
 
  []
 
-[5] (stochasticCalculusNotes.aux) ) 
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 163--167
+
+ []
+
+[6] (stochasticCalculusNotes.aux) ) 
 Here is how much of TeX's memory you used:
- 1557 strings out of 481199
- 20244 string characters out of 2905596
+ 1560 strings out of 481199
+ 20297 string characters out of 2905596
  257983 words of memory out of 3000000
- 17193 multiletter control sequences out of 15000+200000
+ 17196 multiletter control sequences out of 15000+200000
  545699 words of font info for 69 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  35i,9n,33p,663b,192s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -175,9 +180,9 @@ MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/dantr/AppData/Local/Pr
 ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/dantr/AppData
 /Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/dantr
 /AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on stochasticCalculusNotes.pdf (5 pages, 153646 bytes).
+Output written on stochasticCalculusNotes.pdf (6 pages, 156391 bytes).
 PDF statistics:
- 75 PDF objects out of 1000 (max. 8388607)
+ 78 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
