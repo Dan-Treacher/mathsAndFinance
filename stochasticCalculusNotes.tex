@@ -1,0 +1,118 @@
+\documentclass[12pt]{article}
+
+%%%%%% Packages
+\usepackage{amsmath, amssymb}
+
+
+%%%%%% New commands
+% iid text above the distribution sign
+\newcommand{\iid}{\overset{\mathrm{\mathrm{iid}}}{\sim}}
+% Expectation symbol
+\DeclareMathOperator*{\E}{\mathbb{E}}
+% Partial differentiation shorthand
+\newcommand{\dpart}[2]{\frac{\partial #1}{\partial #2}}
+
+
+%%%%%% Opening details
+\title{Stochastic calculus notes}
+\author{Treacher}
+
+
+\begin{document}
+
+\date{}
+\maketitle
+
+\begin{abstract}
+
+\noindent Just some notes about important derivations and maths relevant to quant work
+
+\end{abstract}
+
+\section{Preliminaries}
+\subsection{Brownian motion}
+A random walk from time $t=t$ to $t=T$ can be defined as:
+\begin{equation}
+	Z_T-Z_t=\sum\limits_{j=t}^{j=T}\epsilon_j
+\end{equation}
+where $\epsilon_j\iid\textsc{N}(0,1)$ are the independent and identically distributed (iid) normal random variable(s)\\
+\\
+Given that they're iid, the expectation and variance are found as follows:
+\begin{align}
+	\E\left[Z_T-Z_t\right] &= \E\left[\sum\limits_{j=t}^{j=T}\epsilon_j\right]=(T-t)\cdot 0=0\\
+	\mathrm{Var}(Z_T-Z_t) &= \mathrm{Var}\left(\sum\limits_{j=t}^{j=T}\epsilon_j\right)=(T-t)\cdot\mathrm{Var}(\epsilon_j) = \Delta t.\label{VarianceOfBrownianMotion}
+\end{align}
+\\
+Generalising to a time interval of $t\rightarrow (t+\Delta)$ we find that as $\Delta\to 0$
+\begin{equation}\label{BrownianInfinitessimalLimit}
+	\lim\limits_{\Delta\to 0}\left(Z_{t+\Delta} - Z_t\right)=dZ_t
+\end{equation}
+\\
+Combining equations \ref{VarianceOfBrownianMotion} with \ref{BrownianInfinitessimalLimit}, we see that in the limit of $\Delta\to 0$, the variance of Brownian motion tends to the corresponding infinitesimal time increment:
+\begin{align}
+	\mathrm{Var}(dZ_t)&\to dt \\
+	\sigma&\sim\sqrt{dt}
+\end{align}
+\noindent where $\sigma$ is the standard deviation of the Brownian process $dZ_t$.
+\subsubsection{Key properties of Brownian motion} \label{KeyProperties_BrownianMotion}
+\begin{enumerate}
+	\item $\E\left[dZ_t\right]=0$ hence $\mathrm{Var}(dZ_t)=\E\left[dZ_t^2\right]$
+	\item $\mathrm{Var}(dZ_t)=dt=dZ_t^2$, or the temporal variation scales with the square of the spatial variation. \label{dZVsdt}
+	\item $\mathrm{Cov}(dZ_s,dZ_t)=0\quad\forall\: s\not=t$
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+\section{From a Taylor expansion to Ito's lemma}
+\subsection{The Taylor expansion}
+Consider a function of two variables, $f(x,t)$. This has a two dimensional Taylor expansion about the point(s) $(x_0,t_0)$ of:
+\begin{multline}
+	f(x,t)=f + f_x\cdot(x-x_0) + f_t\cdot(t-t_0) + \\ \frac{1}{2}\left[f_{xx}\cdot(x-x_0)^2 + f_{tt}\cdot(t-t_0)^2 + 2f_{xt}\cdot(x-x_0)(t-t_0)\right]
+\end{multline}
+\noindent where the right hand sign terms are evaluated at $(x_0,t_0)$, and $f_t$ denotes $\frac{\partial f}{\partial t}$.\\
+\\
+We rewrite $(x-x_0)=dx$ and $(t-t_0)=dt$ in the above and move the first term to the right hand side to get
+\begin{equation}\label{Taylor2D}
+	f(x,t)-f(x-x_0,t-t_0)=f_x\,dx + f_t\,dt + \frac{1}{2}\left[f_{xx}\,dx^2 + f_{tt}\,dt^2 + 2f_{xt}\,dx\,dt\right].
+\end{equation}
+\noindent Now we recognise that the left hand side of equation \ref{Taylor2D} is the infinitesimal change in $f$. Further, the only quadratic variation of significance on the right hand side is $dx^2$. This is because (as per point \ref{dZVsdt} in subsection \ref{KeyProperties_BrownianMotion}) the other two quadratic terms, $dt^2$ and $dx\,dt$ have temporal variations of $dt$ raised to powers of 2 and $\frac{3}{2}$ respectively. These are higher, and therefore decay faster than that of $dx^2$ which is equivalent to $dt^1$. We therefore disregard the other terms and continue with the following:
+\begin{equation}\label{Taylor2DFirstOrder}
+	df=f_x\,dx+f_t\,dt+\frac{1}{2}f_{xx}\,dx^2.
+\end{equation}
+\noindent This is the 2D Taylor expansion of a stochastic differential equation to `first' order. Note that we have terms that vary with $dx$ and $dt$ only (because $dx^2=dt$), but have to carry a second partial derivative which wouldn't be the case in a regular non-stochastic function expansion.
+
+\subsection{Geometric Brownian Motion}
+We now introduce Geometric Brownian Motion (GBM) as
+\begin{equation}\label{GBM}
+	\frac{dS}{S}=\mu dt+\sigma dB_t
+\end{equation}
+where $S$ denotes the spot price of some financial instrument (spatial variation), $\mu$ characterises a deterministic drift term (temporal variation), and $\sigma$ scales the stochastic component (random variation) characterised by the Brownian motion / Weiner process $dB_t$.\\
+\\
+We substitute equation \ref{GBM} into that of the expansion in equation \ref{Taylor2DFirstOrder}, observing that the variation in the underlying $dS$ takes the place of the spatial variation $dx$, and the variation in time $dt$ will be switched in and out with that of the Brownian motion $dB_t$:
+\begin{equation}
+	df=\dpart{f}{S}\,S\left(\mu dt+\sigma dB_t\right)+\dpart{f}{t}\,dt+\frac{1}{2}\frac{\partial^2 f}{\partial S^2}\,S^2\left(\mu dt+\sigma dB_t\right)^2.
+\end{equation}
+If we expand the squared bracket we'll get three terms, one with $dt^2$, one with $dt\,dB_t$ and one with $dB_t^2$. Of those three, the one with the slowest temporal variation (most important) is $dB_t^2(=dt)$ so we disregard the other two. Rearranging the above then gives:
+\begin{equation}
+	df=\left(\dpart{f}{S}\,S\mu+\dpart{f}{t}+\frac{S^2\sigma^2}{2}\frac{\partial^2 f}{\partial S^2}\right)\,dt + \dpart{f}{S}\,S\sigma\,dB_t
+\end{equation}
+which is Ito's lemma as applied to GBM.\\
+\\
+Note that if instead of using equation \ref{GBM} above, we used a general ito diffusion process:
+\begin{equation}
+	dX_t=\mu\,dt+\sigma\,dB_t
+\end{equation}
+we'd end up with pretty much the same thing but without the extra $S$ dependencies.
+
+
+
+
+
+
+\end{document}
