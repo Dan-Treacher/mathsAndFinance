@@ -1,0 +1,198 @@
+\documentclass[12pt]{article}
+
+%%%%%% Packages
+\usepackage{amsmath, amssymb}
+
+
+%%%%%% New commands
+% iid text above the distribution sign
+\newcommand{\iid}{\overset{\mathrm{\mathrm{iid}}}{\sim}}
+% Expectation symbol
+\DeclareMathOperator*{\E}{\mathbb{E}}
+% Partial differentiation shorthand
+\newcommand{\dpart}[2]{\frac{\partial #1}{\partial #2}}
+
+
+%%%%%% Opening details
+\title{Stochastic calculus notes}
+\author{Treacher}
+
+
+\begin{document}
+
+\date{}
+\maketitle
+
+\begin{abstract}
+
+\noindent Just some notes about important derivations and maths relevant to quant work
+
+\end{abstract}
+
+\section{Preliminaries}
+\subsection{Brownian motion}
+A random walk from time $t=t$ to $t=T$ can be defined as:
+\begin{equation}
+	Z_T-Z_t=\sum\limits_{j=t}^{j=T}\epsilon_j
+\end{equation}
+where $\epsilon_j\iid\textsc{N}(0,1)$ are the independent and identically distributed (iid) normal random variable(s)\\
+\\
+Given that they're iid, the expectation and variance are found as follows:
+\begin{align}
+	\E\left[Z_T-Z_t\right] &= \E\left[\sum\limits_{j=t}^{j=T}\epsilon_j\right]=(T-t)\cdot 0=0\\
+	\mathrm{Var}(Z_T-Z_t) &= \mathrm{Var}\left(\sum\limits_{j=t}^{j=T}\epsilon_j\right)=(T-t)\cdot\mathrm{Var}(\epsilon_j) = \Delta t.\label{VarianceOfBrownianMotion}
+\end{align}
+\\
+Generalising to a time interval of $t\rightarrow (t+\Delta)$ we find that as $\Delta\to 0$
+\begin{equation}\label{BrownianInfinitessimalLimit}
+	\lim\limits_{\Delta\to 0}\left(Z_{t+\Delta} - Z_t\right)=dZ_t
+\end{equation}
+\\
+Combining equations \ref{VarianceOfBrownianMotion} with \ref{BrownianInfinitessimalLimit}, we see that in the limit of $\Delta\to 0$, the variance of Brownian motion tends to the corresponding infinitesimal time increment:
+\begin{align}
+	\mathrm{Var}(dZ_t)&\to dt \\
+	\sigma&\sim\sqrt{dt}
+\end{align}
+\noindent where $\sigma$ is the standard deviation of the Brownian process $dZ_t$.
+\subsubsection{Key takeaways} \label{KeyProperties_BrownianMotion}
+\begin{enumerate}
+	\item $\E\left[dZ_t\right]=0$ hence $\mathrm{Var}(dZ_t)=\E\left[dZ_t^2\right]$
+	\item $\mathrm{Var}(dZ_t)=dt=dZ_t^2$, or the temporal variation scales with the square of the spatial variation. \label{dZVsdt}
+	\item $\mathrm{Cov}(dZ_s,dZ_t)=0\quad\forall\: s\not=t$
+\end{enumerate}
+%https://www.youtube.com/watch?v=z-jLlObuhkI
+
+
+
+
+
+
+
+
+\section{From a Taylor expansion to Ito's lemma}
+\subsection{The Taylor expansion}
+Consider a function of two variables, $f(x,t)$. This has a two dimensional Taylor expansion about the point(s) $(x_0,t_0)$ of:
+\begin{multline}
+	f(x,t)=f + f_x\cdot(x-x_0) + f_t\cdot(t-t_0) + \\ \frac{1}{2}\left[f_{xx}\cdot(x-x_0)^2 + f_{tt}\cdot(t-t_0)^2 + 2f_{xt}\cdot(x-x_0)(t-t_0)\right]
+\end{multline}
+\noindent where the right hand sign terms are evaluated at $(x_0,t_0)$, and $f_t$ denotes $\frac{\partial f}{\partial t}$.\\
+\\
+We rewrite $(x-x_0)=dx$ and $(t-t_0)=dt$ in the above and move the first term to the right hand side to get
+\begin{equation}\label{Taylor2D}
+	f(x,t)-f(x-x_0,t-t_0)=f_x\,dx + f_t\,dt + \frac{1}{2}\left[f_{xx}\,dx^2 + f_{tt}\,dt^2 + 2f_{xt}\,dx\,dt\right].
+\end{equation}
+\noindent Now we recognise that the left hand side of equation \ref{Taylor2D} is the infinitesimal change in $f$. Further, the only quadratic variation of significance on the right hand side is $dx^2$. This is because (as per point \ref{dZVsdt} in subsection \ref{KeyProperties_BrownianMotion}) the other two quadratic terms, $dt^2$ and $dx\,dt$ have temporal variations of $dt$ raised to powers of 2 and $\frac{3}{2}$ respectively. These are higher, and therefore decay faster than that of $dx^2$ which is equivalent to $dt^1$. We therefore disregard the other terms and continue with the following:
+\begin{equation}\label{Taylor2DFirstOrder}
+	df=f_x\,dx+f_t\,dt+\frac{1}{2}f_{xx}\,dx^2.
+\end{equation}
+\noindent This is the 2D Taylor expansion of a stochastic differential equation to `first' order. Note that we have terms that vary with $dx$ and $dt$ only (because $dx^2=dt$), but have to carry a second partial derivative which wouldn't be the case in a regular non-stochastic function expansion.
+
+\subsection{Geometric Brownian Motion}
+We now introduce Geometric Brownian Motion (GBM) as
+\begin{equation}\label{GBM}
+	\frac{dS}{S}=\mu dt+\sigma dB_t
+\end{equation}
+where $S$ denotes the spot price of some financial instrument (spatial variation), $\mu$ characterises a deterministic drift term (temporal variation), and $\sigma$ scales the stochastic component (random variation) characterised by the Brownian motion / Weiner process $dB_t$.\\
+\\
+We substitute equation \ref{GBM} into that of the expansion in equation \ref{Taylor2DFirstOrder}, observing that the variation in the underlying $dS$ takes the place of the spatial variation $dx$, and the variation in time $dt$ will be switched in and out with that of the Brownian motion $dB_t$:
+\begin{equation}
+	df=\dpart{f}{S}\,S\left(\mu dt+\sigma dB_t\right)+\dpart{f}{t}\,dt+\frac{1}{2}\frac{\partial^2 f}{\partial S^2}\,S^2\left(\mu dt+\sigma dB_t\right)^2.
+\end{equation}
+If we expand the squared bracket we'll get three terms, one with $dt^2$, one with $dt\,dB_t$ and one with $dB_t^2$. Of those three, the one with the slowest temporal variation (most important) is $dB_t^2(=dt)$ so we disregard the other two. Rearranging the above then gives:
+\begin{equation}\label{ItoAppliedToGBM}
+	df=\left(\dpart{f}{S}\,S\mu+\dpart{f}{t}+\frac{S^2\sigma^2}{2}\frac{\partial^2 f}{\partial S^2}\right)\,dt + \dpart{f}{S}\,S\sigma\,dB_t
+\end{equation}
+which is Ito's lemma as applied to GBM.\\
+\\
+Note that if instead of using equation \ref{GBM} above, we used a general ito diffusion process:
+\begin{equation}
+	dX_t=\mu\,dt+\sigma\,dB_t
+\end{equation}
+we'd end up with pretty much the same thing but without all the extra $S$ dependencies.
+\subsubsection{Key takeaways}
+\begin{enumerate}
+	\item Taylor expansion of SDE requires some additional terms compared to regular deterministic function.
+	\item Geometric brownian motion comprises a deterministic drift and a random stochastic variation.
+	\item Taylor expanding GBM gives you a version of Ito's lemma describing how a function $f$ varies given a change in the spot price of the underlying $S$.
+\end{enumerate}
+
+
+
+
+
+\section{From a Ito's lemma to Black Scholes PDE}
+\subsection{Black Scholes as an expression of the replicating portfolio}
+\subsubsection{Replicating portfolio}
+The replicating portfolio is a principal that says the payout of an option or derivative can be replicated by holding certain positions in lending / borrowing and the underlying:
+\begin{itemize}
+	\item Call option = (long $\Delta$ units of the underlying) - ($B$ amount of borrowed cash)
+	\item Put option = (short $\Delta$ units of the underlying) + ($B$ amount of borrowed cash)
+\end{itemize}
+so when looking at a binomial tree describing option prices as certain intermediary dates, to calculate the fair price, you can work backwards from the terminal nodes solving
+\begin{align}
+	\Delta\,S^{\mathrm{up}}_T-B(1+r)&=V^{\mathrm{up}}_T\\
+	\Delta\,S^{\mathrm{down}}_T+B(1+r)&=V^{\mathrm{down}}_T\\
+\end{align}
+where $r$ is the risk free rate, $S_t^{u/d}$ are the underlying spot prices at time $t$ in the higher/lower price state and $V_t^{u/d}$ are the corresponding option prices. In that framework you would only know the terminal option prices, hence the need to work backwards from the end.\\
+\\
+Jumping forward, the Black Scholes FORMULA for the price of a call option can be written as
+\begin{equation}
+	C(S,t)=S_t\Phi(d_1) - k\mathrm{e}^{-rt}\Phi(d_2)
+\end{equation}
+where $S_t\Phi(d_1)$ represents the long underlying position and the $k\mathrm{e}^{-rt}\Phi(d_2)$ represents the borrowing of cash (discounted back to today's value). Hence the Black Scholes formula is an expression of the replicating portfolio.
+
+\subsubsection{Delta hedging portfolio}
+Now denoting an option as $V$, consider a portfolio consisting of going short one option $(-V)$ and long some shares in the underlying $(+\dpart{V}{S})$:
+\begin{equation}
+	\Pi=-V+\dpart{S}{V}S
+\end{equation}
+which has an incremental value change over time $\Delta t$ of
+\begin{equation}\label{DeltaHedgePortfolio}
+	\Delta\Pi=-\Delta V+\dpart{S}{V}\,\Delta S
+\end{equation}
+
+\subsection{Ito's lemma application}
+
+Applying equation \ref{ItoAppliedToGBM} to this situation involves substituting $V$, the option price, for the generic function handle $f$. Taking this over the increment of time $\Delta t$, we have
+\begin{equation}
+	\Delta V=\left(\dpart{V}{S}\,S\mu+\dpart{V}{t}+\frac{S^2\sigma^2}{2}\frac{\partial^2 V}{\partial S^2}\right)\,\Delta t + \dpart{V}{S}\,S\sigma\,\Delta B_t
+\end{equation}
+which describes the incremental value change in the option $V$ in response to a change in the underlying $S$. Substituting this into the delta hedging portfolio (equation \ref{DeltaHedgePortfolio}), we get after cancelling some terms
+\begin{equation}\label{DeltaHedgeIto}
+	\Delta\Pi = -\left(\dpart{V}{t}+\frac{S^2\sigma^2}{2}\frac{\partial^2 V}{\partial S^2}\right)\Delta t.
+\end{equation}
+Of note here is that we've managed to eliminate the $dB_t$ term which represented the random stochastic part of the situation. The portfolio is now riskless, with rate of return $r$.\\
+\\
+The delta hedging portfolio will grow at rate $r$ over time $\Delta t$ according to
+\begin{equation}
+	r\,\Pi\,\Delta t = \Delta \Pi
+\end{equation}
+which when equated to equation \ref{DeltaHedgeIto} reveals
+\begin{equation}
+	r\left(\dpart{V}{S}S-V\right)=-\dpart{V}{t}-\frac{S^2\sigma^2}{2}\frac{\partial^2 V}{\partial S^2}
+\end{equation}
+which rearranges to
+\begin{equation}
+	\dpart{V}{t}+\frac{S^2\sigma^2}{2}\frac{\partial^2 V}{\partial S^2}+rS\dpart{V}{S}-rV=0
+\end{equation}
+which is the Black Scholes PDE.
+\subsubsection{Key takeaways}
+\begin{enumerate}
+	\item Consider the delta hedging portfolio.
+	\item Substitute in Ito's lemma applied to GBM as the option price. Cancel terms.
+	\item Equate to the delta hedging portfolio's incremental value change.
+	\item Rearrange to get the PDE.
+	\item Black Scholes formula is an expression of the replicating portfolio.
+\end{enumerate}
+
+
+
+
+
+
+\section{Solving geometric brownian motion SDE}
+
+
+
+
+\end{document}
