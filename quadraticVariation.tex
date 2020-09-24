@@ -1,0 +1,132 @@
+\documentclass[12pt]{article}
+
+%%%%%% Packages
+\usepackage{amsmath, amssymb}
+
+
+%%%%%% New commands
+% iid text above the distribution sign
+\newcommand{\iid}{\overset{\mathrm{\mathrm{iid}}}{\sim}}
+% Expectation symbol
+\DeclareMathOperator*{\E}{\mathbb{E}}
+% Partial differentiation shorthand
+\newcommand{\dpart}[2]{\frac{\partial #1}{\partial #2}}
+
+
+%%%%%% Opening details
+\title{Quadratic Variation}
+\author{Treacher}
+
+
+\begin{document}
+
+\date{}
+\maketitle
+
+\begin{abstract}
+
+\noindent Just some notes about quadratic variation, summarised from\\ https://benjaminwhiteside.com/2017/01/26/quadratic-variation/
+
+\end{abstract}
+
+\section{Definition}
+
+Quadratic variation is defined as the sum of squared changes in a process $X_t$:
+
+\begin{equation} \label{eq:QuadraticVariation}
+	[X]_t =\lim\limits_{\mathrm{max}(\Delta t)\to 0}\,\sum_{i=1}^n\left(X_{t_i} - X_{t_{i-1}}\right)^2
+\end{equation}
+
+\noindent where $\Delta t = t_i - t_{i-1}$ for any $t_i$ which is the $i^\mathrm{th}$ partition of the full time space $t\in [0,T]$. The limit is over the maximum time increment going to zero (implying the different increments can tend to zero at different rates?)
+
+
+
+\section{Using a Wiener process}
+
+Properties of the Wiener process:
+\begin{itemize}
+	\item $W_0 = N(0,0)$
+	\item $W_t - W_s = N(0, t-s)$
+	\item Var$(W_t - W_s) = t-s$
+	\item $W_t, W_{t+1}, ... W_{t+n} \iid$
+\end{itemize}
+
+\noindent We can therefore write the variance of a Wiener process in terms of the expectation value knowing that Var$(x) = \E[(x - \E[x])^2]$, and the expectation of a Wiener process is always 0 to say:
+
+\begin{equation} \label{eq:VartoE}
+	\mathrm{Var}(W_t - W_s) = \E[(\{W_t - W_s\} - \E[W_t - W_s])^2] = \E[(W_t - W_s)^2] = t - s
+\end{equation}
+
+\noindent Now consider the sum of squared differences in a Wiener process denoted by $Q_p$
+
+\begin{equation}
+	Q_p=\sum_{i=1}^n\left(W_{t_{i+1}} - W_{t_i}\right)^2
+\end{equation}
+
+\noindent and take the expected value to recover something similar to the variance expression:
+
+\begin{equation}
+	\E[Q_p] = \E\left[\sum_{i=1}^n\left(W_{t_{i+1}} - W_{t_i}\right)^2\right] =\sum_{i=1}^n t_{i+1} - t_i
+\end{equation}
+
+\noindent having changed the order of the expectation and summation, and observing the expression at the end of equation \ref{eq:VartoE}.\\
+\\
+The sum of the independent time increments is by definition equal to the to the final value of the time, such that
+
+\begin{equation}
+	\E[Q_p] = t.
+\end{equation}
+
+\noindent From this we conclude that ``Brownian motion accumulates quadratic variation at a rate of 1 per unit of time."
+
+\section{Ito integral}
+
+
+The definition of an Ito integral of a stochastic process $\xi(t)$ is (do separate summary of where this comes from at some point):
+
+\begin{equation} \label{eq:itoIntegral}
+	\int_{0}^{t} \xi(t)\mathrm{d}W_s = \lim\limits_{h\to 0}\sum_{k=1}^{i_t}\xi(t_{k-1})\cdot \left(W_{t_k}-W_{t_{k-1}}\right)
+\end{equation}
+
+\noindent If we take the stochastic process $\xi(t)=1$ and square both sides then the right hand side of the above is just $\E[Q_p]$ which we know is equal to $t$. This allows us to say
+
+\begin{equation}
+	\int_{0}^{t}\mathrm{d}W_s^2 = t
+\end{equation}
+
+\noindent or by differentiating,
+
+\begin{equation}
+	\mathrm{d}W_s^2 = \mathrm{d}t.
+\end{equation}
+
+
+\section{Application to $dt^2$}
+
+Consider the quadratic variation as above but applied to a time process $t$ instead of a stochastic process $X$:
+
+\begin{equation}
+	[t]_t =\lim\limits_{n\to \infty}\,\sum_{i=1}^n\left(t_{i+1} - t_i\right)^2
+\end{equation}
+
+\noindent We know there are $n$ time increments, which must have equal length of $t/n$ which allows the above to be written as
+
+
+\begin{equation}
+	[t]_t =\lim\limits_{n\to \infty}\,\sum_{i=1}^n\left(\frac{t}{n}\right)^2=\lim\limits_{n\to \infty}\left(\frac{t}{n}\right)^2\,\sum_{i=1}^n=\lim\limits_{n\to \infty}\frac{t^2}{n}=0
+\end{equation}
+
+\noindent which reveals the quadratic variation of time $[t]_t=0$. Using the Ito integral in equation \ref{eq:itoIntegral} with respect to $t$, we can then say
+
+
+\begin{equation}
+	\int_{0}^{t}\mathrm{d}s\cdot\mathrm{d}s =[t]_t=0
+\end{equation}
+
+\noindent or equivalently via differentiation:
+
+\begin{eqnarray}
+	\mathrm{d}t^2=0
+\end{eqnarray}
+
+\end{document}
