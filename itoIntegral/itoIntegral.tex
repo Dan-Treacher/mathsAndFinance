@@ -82,7 +82,36 @@ Same logic as above applies when increasing the number of partitions until the u
 
 \section{Brownian motion as integrator}
 
-The above Stieltjes approach doesn't translate to using Brownian motion as the integrator because of its fractal and zig-zagy nature. These factors make proofs of convergence difficult and motivate the choice for a different kind of integration: One using `simple functions'
+\subsection{Riemann-Stieltjes approach}
+The above Stieltjes approach doesn't translate to using Brownian motion as the integrator because of its fractal and zig-zagy nature. These factors make proofs of convergence difficult and motivate the choice for a different kind of integration: One using `simple functions'\\
+\\
+More formally, if you were to try and integrate standard brownian motion as
+\begin{equation}
+	\int_{0}^{t}B_s\mathrm{d}B_s
+\end{equation}
+
+\noindent you would partition the integral into the $n$ relevant subintervals and try to find the Riemann-Stieltjes sums:
+\begin{eqnarray}
+	S^1_n(t) =& \sum_{i=1}^{n}B(t_{i-1})\cdot(B(t_i)-B(t_{i-1}))\\
+	S^2_n(t) =& \sum_{i=1}^{n}B(t_i)\cdot(B(t_i)-B(t_{i-1}))
+\end{eqnarray}
+
+\noindent Now if the Riemann-Stieltjes integral exists, $S^1_n(t)-S^2_n(t)\to 0$ as the largest subinterval shrank to zero: max$\{t_i-t_{i-1}\}\to 0$. But multiplying out the argument of the sums above, and observing that disjoint time interval brownian terms are independent hence multiply to zero, we see
+\begin{equation}
+	S^1_n(t)-S^2_n(t)=\sum_{i=1}^{n}\left(B_{t_i}-B_{t_{i-1}}\right)^2 > 0
+\end{equation}
+
+\noindent and as shown in the quadraticVariation folder, the expectation of $B_{t_i}-B_{t_{i-1}}$ is $t_i-t_{i-1}$, the sum of which is just equal to the time horizon $t$:
+
+\begin{equation}
+	\E\left[S^1_n(t)-S^2_n(t)\right]=\sum_{i=1}^{n}t_i-t_{i-1}=t\neq0
+\end{equation}
+
+\noindent meaning that the sums don't converge, and the Riemann-Stieltjes integral does not exist for a Brownian motion process.
+
+\subsection{Simple functions approach}
+
+
 
 \section{Definition}
 
