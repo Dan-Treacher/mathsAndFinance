@@ -150,26 +150,55 @@ Now the expectation is just a probability weighted sum, allowing us to write the
 
 \noindent The sequence of subintervals can be written as
 
-\begin{eqnarray}
+\begin{eqnarray}\label{eq:simpleFunctionIndicator}
 	S(t)=\sum_{i=1}^{n}c_i\cdot\mathbbm{1}_{t_{i-1}, t_i}
 \end{eqnarray}
 
-\noindent where $c_i$ are the simple function values and $\mathbbm{1}_{t_{i-1}, t_i}$ is the indicator variable that is = 1 between ${t_{i-1}, t_i}$ and 0 everywhere else.
+\noindent where $c_i$ are the simple function values and $\mathbbm{1}_{t_{i-1}, t_i}$ is the indicator variable that is = 1 between ${t_{i-1}, t_i}$ and 0 everywhere else.\\
+\\
+The $c_i$s in the above are there to approximate the function $f$. As a technicality, we say that the $c_i$s are `adapted to the filtration $F$' which roughly means that at a given time $t$, only the values of $c_i$ with $i\leq t_{i-1}$ are available implying we can't see into the future.\\
+\\
+From equation \ref{eq:simpleFunctionIndicator}, we can write the ito integral as the sum of simple (constant) functions over subintervals:
 
-
-
-
-
-
-
-
-\section{Definition}
-
-Ito integral is defined as:
-
-\begin{equation} \label{eq:itoIntegral}
-	\int_{0}^{t}X_a\,\mathrm{d}B_s\approx\lim\limits_{k\to\infty}\sum_{i=1}^{k}X(t_{i-1})\cdot(B_{t_i}-B_{t_{i-1}})
+\begin{equation}
+	I(t)=\sum_{i=1}^{n}c_i\cdot\left(B_{t_i}-B_{t_{i-1}}\right)
 \end{equation}
 
+
+
+
+
+
+\section{Summary}
+
+So we started with trying to calculate the integral of some function with respect to a stochastic Brownian integrator:
+
+\begin{equation}
+	I(f)=\int_{0}^{t}f(u,B_u)\,\mathrm{d}B_u.
+\end{equation}
+
+\noindent Regular Riemann or Riemann-Stieltjes approached don't work because of the details of how the Brownian motion is put together.\\
+\\
+Next step was to approximate the integral as a limit of a sum of simple functions $c_i$ which locally approximate the value(s) of $f$:
+
+\begin{equation}
+	S(t)=\sum_{i=1}^{n}c_i\cdot\mathbbm{1}_{t_{i-1}, t_i}
+\end{equation}
+
+\noindent From there, we define the Ito integral as the limiting value of a sum:
+
+\begin{equation}
+	I(t)=\sum_{i=1}^{n}c_i\cdot\left(B_{t_i}-B_{t_{i-1}}\right)
+\end{equation}
+
+
+\noindent so for completeness, the \textbf{Ito integral} is:
+
+\begin{equation}
+	\int_{0}^{t}f(u,B_u)\,\mathrm{d}B_u\approx\sum_{i=1}^{n}f_i\cdot\left(B_{t_i}-B_{t_{i-1}}\right)
+\end{equation}
+\noindent where I've replaced $c_i$ with $f_i$ to emphasize the approximation.\\
+\\
+The proof of convergence is done via the Cauchy criteria and is somewhat involved. Check the youtube link in the abstract for a decent walkthrough.
 
 \end{document}

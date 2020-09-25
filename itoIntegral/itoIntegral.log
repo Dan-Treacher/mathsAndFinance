@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.7) (preloaded format=pdflatex 2020.9.7)  25 SEP 2020 17:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.7) (preloaded format=pdflatex 2020.9.7)  25 SEP 2020 19:30
 entering extended mode
 **./itoIntegral.tex
 (itoIntegral.tex
@@ -231,39 +231,58 @@ LaTeX Font Info:    Trying to load font information for U+bbm on input line 154
  (C:\Users\dantr\AppData\Local\Programs\MiKTeX\tex/latex/bbm\ubbm.fd
 File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
 )
-[6 <./quantPieScreenShot.png>] (itoIntegral.aux) ) 
+Underfull \hbox (badness 10000) in paragraph at lines 157--162
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 157--162
+
+ []
+
+[6 <./quantPieScreenShot.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 180--183
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 199--203
+
+ []
+
+[7] (itoIntegral.aux) ) 
 Here is how much of TeX's memory you used:
  2372 strings out of 481199
- 32087 string characters out of 2905596
+ 32099 string characters out of 2905596
  268652 words of memory out of 3000000
  17963 multiletter control sequences out of 15000+200000
  545532 words of font info for 70 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  36i,7n,33p,476b,227s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\dantr\AppData\Loca
-l\MiKTeX\fonts/pk/ljfour/public/bbm/dpi600\bbm12.pk> <C:\Users\dantr\AppData\Lo
-cal\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk> <C:\Users\dantr\AppD
-ata\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Users/dantr
-/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Us
-ers/dantr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.p
-fb><C:/Users/dantr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
-/cmex10.pfb><C:/Users/dantr/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
-sfonts/cm/cmmi12.pfb><C:/Users/dantr/AppData/Local/Programs/MiKTeX/fonts/type1/
-public/amsfonts/cm/cmmi6.pfb><C:/Users/dantr/AppData/Local/Programs/MiKTeX/font
-s/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/dantr/AppData/Local/Programs/MiK
-TeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/dantr/AppData/Local/Prog
-rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/dantr/AppData/Lo
-cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/dantr/Ap
-pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/d
-antr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/
-Users/dantr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10
-.pfb><C:/Users/dantr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
-cm/cmsy6.pfb><C:/Users/dantr/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
-msfonts/cm/cmsy8.pfb><C:/Users/dantr/AppData/Local/Programs/MiKTeX/fonts/type1/
-public/amsfonts/symbols/msbm10.pfb>
-Output written on itoIntegral.pdf (6 pages, 292820 bytes).
+ <C:\Users\dantr\AppData\Local\MiKTeX\fonts/pk/ljfour/pu
+blic/bbm/dpi600\bbm12.pk> <C:\Users\dantr\AppData\Local\MiKTeX\fonts/pk/ljfour/
+jknappen/ec/dpi600\tcrm1200.pk> <C:\Users\dantr\AppData\Local\MiKTeX\fonts/pk/l
+jfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Users/dantr/AppData/Local/Programs/MiK
+TeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/dantr/AppData/Local/Pro
+grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/dantr/AppData/
+Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/dantr
+/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Us
+ers/dantr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pf
+b><C:/Users/dantr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmmi8.pfb><C:/Users/dantr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
+onts/cm/cmr10.pfb><C:/Users/dantr/AppData/Local/Programs/MiKTeX/fonts/type1/pub
+lic/amsfonts/cm/cmr12.pfb><C:/Users/dantr/AppData/Local/Programs/MiKTeX/fonts/t
+ype1/public/amsfonts/cm/cmr17.pfb><C:/Users/dantr/AppData/Local/Programs/MiKTeX
+/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/dantr/AppData/Local/Programs
+/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/dantr/AppData/Local/P
+rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/dantr/AppDat
+a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/dant
+r/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Us
+ers/dantr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msb
+m10.pfb>
+Output written on itoIntegral.pdf (7 pages, 296375 bytes).
 PDF statistics:
- 101 PDF objects out of 1000 (max. 8388607)
+ 106 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
