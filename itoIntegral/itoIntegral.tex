@@ -3,6 +3,7 @@
 %%%%%% Packages
 \usepackage{amsmath, amssymb}
 \usepackage{graphicx}
+\usepackage{bbm}
 
 
 %%%%%% New commands
@@ -83,7 +84,7 @@ Same logic as above applies when increasing the number of partitions until the u
 \section{Brownian motion as integrator}
 
 \subsection{Riemann-Stieltjes approach}
-The above Stieltjes approach doesn't translate to using Brownian motion as the integrator because of its fractal and zig-zagy nature. These factors make proofs of convergence difficult and motivate the choice for a different kind of integration: One using `simple functions'\\
+The above Stieltjes approach doesn't translate to using Brownian motion as the integrator because of its fractal and zig-zagy nature. These factors make proofs of convergence difficult and motivate the choice for a different kind of integration: One using `simple functions'.\\
 \\
 More formally, if you were to try and integrate standard brownian motion as
 \begin{equation}
@@ -110,6 +111,55 @@ More formally, if you were to try and integrate standard brownian motion as
 \noindent meaning that the sums don't converge, and the Riemann-Stieltjes integral does not exist for a Brownian motion process.
 
 \subsection{Simple functions approach}
+
+Basic steps:
+\begin{itemize}
+	\item Replace the function $f$ with a constant. Set the value as the average of $f$ between the relevant limits
+	\item Now the integral of the new constant function with respect to the Brownian integrator is just the constant value multiplied by the change in the Brownian over that the interval.
+	\item Now make subintervals by splitting the constant valued function into multiple regions of constant values (each constant is just the average of the function in that region)
+	\item As the number of subintervals becomes large, you end up with a series of step functions that approximate the level of the function (see figure \ref{fig:quantPieScreenShot}).
+	\item The limiting value as the number of subintervals $\to\infty$ is the Ito's integral value.
+\end{itemize}
+
+\noindent Proofs of convergence of the Ito integral depend on convergence in the mean squared sense which for a stochastic process $X_n$ and terminal value $X$ is defined as
+
+\begin{equation}
+	\lim\limits_{n\to\infty}\E\left[\left|X_n - X\right|^2\right]=0
+\end{equation}
+
+\noindent To test the convergence of the Ito integral approach, you use the Cauchy convergence or Cauchy criteria test: For every $\epsilon>0$, $\exists\,N$ such that $\forall\,n>N, n>M:$ $\left|X_n-X_m\right|<\epsilon$. This is essentially saying that for large enough values of $n,m$, terms $n,m$ of the process will converge to within a distance of $\epsilon$, allowing the mean squared convergence to be recast as
+
+\begin{equation} \label{eq:meanSquaredCauchy}
+	\lim\limits_{n,m\to\infty}\E\left[\left|X_n - X_m\right|^2\right]=0
+\end{equation}
+
+\noindent Useful because we can prove convergence without knowing the limit $X$.\\
+\\
+Now the expectation is just a probability weighted sum, allowing us to write the above in terms of the L$_2$ norm:
+
+\begin{equation}
+	\lim\limits_{n,m\to\infty}||X_n-X_m||^2_{L_2}=0
+\end{equation}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\linewidth]{quantPieScreenShot.png}
+	\caption{Simple functions (green) approximations to a function (blue) with an increasing number of subintervals (left to right).}
+	\label{fig:quantPieScreenShot}
+\end{figure}
+
+\noindent The sequence of subintervals can be written as
+
+\begin{eqnarray}
+	S(t)=\sum_{i=1}^{n}c_i\cdot\mathbbm{1}_{t_{i-1}, t_i}
+\end{eqnarray}
+
+\noindent where $c_i$ are the simple function values and $\mathbbm{1}_{t_{i-1}, t_i}$ is the indicator variable that is = 1 between ${t_{i-1}, t_i}$ and 0 everywhere else.
+
+
+
+
+
 
 
 

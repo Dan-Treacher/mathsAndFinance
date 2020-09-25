@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.7) (preloaded format=pdflatex 2020.9.7)  25 SEP 2020 16:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.7) (preloaded format=pdflatex 2020.9.7)  25 SEP 2020 17:26
 entering extended mode
 **./itoIntegral.tex
 (itoIntegral.tex
@@ -114,6 +114,12 @@ File: pdftex.def 2020/08/26 v1.2 Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen144
 \Gin@req@width=\dimen145
+) (C:\Users\dantr\AppData\Local\Programs\MiKTeX\tex/latex/bbm\bbm.sty
+Package: bbm 1999/03/15 V 1.2 provides fonts for set symbols - TH
+LaTeX Font Info:    Overwriting math alphabet `\mathbbm' in version `bold'
+(Font)                  U/bbm/m/n --> U/bbm/bx/n on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathbbmss' in version `bold'
+(Font)                  U/bbmss/m/n --> U/bbmss/bx/n on input line 35.
 )
 (C:\Users\dantr\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
@@ -123,20 +129,20 @@ File: l3backend-pdftex.def 2020-09-01 L3 backend support: PDF output (pdfTeX)
 ) (itoIntegral.aux)
 \openout1 = `itoIntegral.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
 
 (C:\Users\dantr\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
@@ -159,19 +165,19 @@ Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 25.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 26.
 
 
 (C:\Users\dantr\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 25.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 26.
 
 
 (C:\Users\dantr\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Overfull \hbox (7.46526pt too wide) in paragraph at lines 32--33
+Overfull \hbox (7.46526pt too wide) in paragraph at lines 33--34
 []\OT1/cmr/m/n/10.95 http://www.columbia.edu/ ks20/FE-Notes/4700-07-Notes-Ito.p
 df 
  []
@@ -179,12 +185,12 @@ df
 <riemannSums.png, id=1, 550.4565pt x 619.113pt>
 File: riemannSums.png Graphic file (type png)
 <use riemannSums.png>
-Package pdftex.def Info: riemannSums.png  used on input line 54.
+Package pdftex.def Info: riemannSums.png  used on input line 55.
 (pdftex.def)             Requested size: 312.00119pt x 350.92368pt.
 [1
 
 {C:/Users/dantr/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 61--64
+Underfull \hbox (badness 10000) in paragraph at lines 62--65
 
  []
 
@@ -192,55 +198,72 @@ Underfull \hbox (badness 10000) in paragraph at lines 61--64
 <stieltjesIntegration.png, id=22, 375.804pt x 284.262pt>
 File: stieltjesIntegration.png Graphic file (type png)
 <use stieltjesIntegration.png>
-Package pdftex.def Info: stieltjesIntegration.png  used on input line 73.
+Package pdftex.def Info: stieltjesIntegration.png  used on input line 74.
 (pdftex.def)             Requested size: 312.00119pt x 236.01112pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 67--77
+Underfull \hbox (badness 10000) in paragraph at lines 68--78
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 78--81
+Underfull \hbox (badness 10000) in paragraph at lines 79--82
 
  []
 
 [3 <./stieltjesIntegration.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 86--89
+Underfull \hbox (badness 10000) in paragraph at lines 87--90
 
  []
 
-[4] [5] (itoIntegral.aux) ) 
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 136--139
+
+ []
+
+<quantPieScreenShot.png, id=33, 293.29575pt x 109.00725pt>
+File: quantPieScreenShot.png Graphic file (type png)
+<use quantPieScreenShot.png>
+Package pdftex.def Info: quantPieScreenShot.png  used on input line 146.
+(pdftex.def)             Requested size: 390.0pt x 144.95451pt.
+[5]
+LaTeX Font Info:    Trying to load font information for U+bbm on input line 154
+.
+ (C:\Users\dantr\AppData\Local\Programs\MiKTeX\tex/latex/bbm\ubbm.fd
+File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
+)
+[6 <./quantPieScreenShot.png>] (itoIntegral.aux) ) 
 Here is how much of TeX's memory you used:
- 2323 strings out of 481199
- 30920 string characters out of 2905596
- 268624 words of memory out of 3000000
- 17925 multiletter control sequences out of 15000+200000
- 545137 words of font info for 67 fonts, out of 3000000 for 9000
+ 2372 strings out of 481199
+ 32087 string characters out of 2905596
+ 268652 words of memory out of 3000000
+ 17963 multiletter control sequences out of 15000+200000
+ 545532 words of font info for 70 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 36i,6n,33p,476b,227s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\dantr\AppData\Local\MiKTeX\fonts/pk/ljfou
-r/jknappen/ec/dpi600\tcrm1200.pk> <C:\Users\dantr\AppData\Local\MiKTeX\fonts/pk
-/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Users/dantr/AppData/Local/Programs/M
-iKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/dantr/AppData/Local/P
-rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/dantr/AppDat
-a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/dan
-tr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/
-Users/dantr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.
-pfb><C:/Users/dantr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
-m/cmmi8.pfb><C:/Users/dantr/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
-sfonts/cm/cmr10.pfb><C:/Users/dantr/AppData/Local/Programs/MiKTeX/fonts/type1/p
-ublic/amsfonts/cm/cmr12.pfb><C:/Users/dantr/AppData/Local/Programs/MiKTeX/fonts
-/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/dantr/AppData/Local/Programs/MiKT
-eX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/dantr/AppData/Local/Progra
-ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/dantr/AppData/Local
-/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/dantr/AppD
-ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/da
-ntr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/
-Users/dantr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/m
-sbm10.pfb>
-Output written on itoIntegral.pdf (5 pages, 255549 bytes).
+ 36i,7n,33p,476b,227s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C:\Users\dantr\AppData\Loca
+l\MiKTeX\fonts/pk/ljfour/public/bbm/dpi600\bbm12.pk> <C:\Users\dantr\AppData\Lo
+cal\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk> <C:\Users\dantr\AppD
+ata\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Users/dantr
+/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Us
+ers/dantr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.p
+fb><C:/Users/dantr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
+/cmex10.pfb><C:/Users/dantr/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
+sfonts/cm/cmmi12.pfb><C:/Users/dantr/AppData/Local/Programs/MiKTeX/fonts/type1/
+public/amsfonts/cm/cmmi6.pfb><C:/Users/dantr/AppData/Local/Programs/MiKTeX/font
+s/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/dantr/AppData/Local/Programs/MiK
+TeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/dantr/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/dantr/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/dantr/Ap
+pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/d
+antr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/
+Users/dantr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10
+.pfb><C:/Users/dantr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
+cm/cmsy6.pfb><C:/Users/dantr/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
+msfonts/cm/cmsy8.pfb><C:/Users/dantr/AppData/Local/Programs/MiKTeX/fonts/type1/
+public/amsfonts/symbols/msbm10.pfb>
+Output written on itoIntegral.pdf (6 pages, 292820 bytes).
 PDF statistics:
- 90 PDF objects out of 1000 (max. 8388607)
+ 101 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
